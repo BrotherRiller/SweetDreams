@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dreaming : MonoBehaviour
+public class Teleport : MonoBehaviour
 {
     [SerializeField] GameObject dreamLocation;
+    [SerializeField] bool interactable;
+    [SerializeField] bool automatic;
 
     private bool cooldown = false;
     // Start is called before the first frame update
@@ -12,7 +14,7 @@ public class Dreaming : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetKey(KeyCode.E) && !cooldown)
+            if (Input.GetKey(KeyCode.E) && !cooldown && interactable || automatic)
             {
                 var charContrl = other.GetComponent<CharacterController>();
 

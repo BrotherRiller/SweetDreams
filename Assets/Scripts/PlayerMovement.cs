@@ -12,11 +12,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundMask;
 
-    private float x;
-    private float z;
-    private Vector3 move;
-    private Vector3 velocity;
-    private bool isGrounded;
+    public float x;
+    public float z;
+    public Vector3 move;
+    public Vector3 velocity;
+    public bool isGrounded;
 
     // Update is called once per frame
     void Update()
@@ -43,6 +43,5 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
-        Debug.Log(isGrounded);
     }
 }
