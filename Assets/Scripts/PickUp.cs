@@ -11,7 +11,6 @@ public class PickUp : MonoBehaviour
     [SerializeField] BoxCollider coll;
 
     private float pickUpRange = 4f;
-    private float pickUpTime = 0.5f;
     private float dropForwardForce = 15f;
     private float dropUpwardForce= 7f;
     private bool cooldown = false;
@@ -37,14 +36,14 @@ public class PickUp : MonoBehaviour
     private void Update()
     {
         Vector3 distanceToPlayer = player.position - transform.position;
-        Debug.Log(distanceToPlayer);
-        if(!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKey(KeyCode.E) && !slotFull)
+        
+        if(!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKey(KeyCode.E) && !cooldown && !slotFull)
         {
             PickObjectUp();
             Invoke("ResetCooldown", 1f);
             cooldown = true;
         }
-        if(equipped && Input.GetKey(KeyCode.Q))
+        if(equipped && Input.GetKey(KeyCode.Q) && !cooldown)
         {
             Drop();
             Invoke("ResetCooldown", 1f);
