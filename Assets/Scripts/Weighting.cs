@@ -41,14 +41,14 @@ public class Weighting : MonoBehaviour
         {
             if (alsoOnlyOnce)
             {
-                tilter.transform.Rotate(50, 0, 0, Space.World);
+                tilter.transform.Rotate(0, 0, -50, Space.World);
                 cup1.transform.position += new Vector3(0, 2.2f, 0);
                 cup2.transform.position -= new Vector3(0, 2.6f, 0);
                 alsoOnlyOnce = false;
             }
             else
             {
-                tilter.transform.Rotate(25, 0, 0, Space.World);
+                tilter.transform.Rotate(0, 0, -25, Space.World);
                 cup1.transform.position += new Vector3(0, 1.1f, 0);
                 cup2.transform.position -= new Vector3(0, 1.3f, 0);
             }
@@ -60,14 +60,14 @@ public class Weighting : MonoBehaviour
         {
             if (onlyOnce)
             {
-                tilter.transform.Rotate(-50, 0, 0, Space.World);
+                tilter.transform.Rotate(0, 0, 50, Space.World);
                 cup1.transform.position -= new Vector3(0, 2.2f, 0);
                 cup2.transform.position += new Vector3(0, 2.6f, 0);
                 onlyOnce = false;
             }
             else
             {
-                tilter.transform.Rotate(-25, 0, 0, Space.World);
+                tilter.transform.Rotate(0, 0, 25, Space.World);
                 cup1.transform.position -= new Vector3(0, 1.1f, 0);
                 cup2.transform.position += new Vector3(0, 1.3f, 0);
             }
@@ -78,7 +78,7 @@ public class Weighting : MonoBehaviour
 
         if(weight1 == weight2 && left)
         {
-            tilter.transform.Rotate(25, 0, 0, Space.World);
+            tilter.transform.Rotate(0, 0, -25, Space.World);
             cup1.transform.position += new Vector3(0, 1.1f, 0);
             cup2.transform.position -= new Vector3(0, 1.3f, 0);
             left = false;
@@ -88,33 +88,12 @@ public class Weighting : MonoBehaviour
         }
         if(weight1 == weight2 && right)
         {
-            tilter.transform.Rotate(-25, 0, 0, Space.World);
+            tilter.transform.Rotate(0, 0, 25, Space.World);
             cup1.transform.position -= new Vector3(0, 1.1f, 0);
             cup2.transform.position += new Vector3(0, 1.3f, 0);
             right = false;
             onlyOnce = false;
             alsoOnlyOnce = false;
-        }
-
-        Debug.Log(weight1);
-        Debug.Log(weight2);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            tilter.transform.Rotate(25, 0, 0, Space.World);
-            cup1.transform.position += new Vector3(0, 1.1f, 0);
-            cup2.transform.position -= new Vector3(0, 1.3f, 0);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            tilter.transform.Rotate(-25, 0, 0, Space.World);
-            cup1.transform.position -= new Vector3(0, 1.1f, 0);
-            cup2.transform.position += new Vector3(0, 1.3f, 0);
         }
     }
 }

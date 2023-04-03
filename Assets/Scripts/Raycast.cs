@@ -13,7 +13,6 @@ public class Raycast : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, 10))
         {
-            Debug.Log(hit.transform.tag);
             var selection = hit.transform;
 
             if(Input.GetKey(KeyCode.E) && !cooldown && selection.CompareTag("PickUpable") && objectHolder.transform.childCount <= 0)
@@ -39,13 +38,28 @@ public class Raycast : MonoBehaviour
                 var rotate = selection.GetComponent<RotateObject>();
                 rotate.Rotate();
 
-                Invoke("ResetCooldown", 1f);
+                Invoke("ResetCooldown", 0.3f);
                 cooldown = true;
             }
             if (Input.GetKey(KeyCode.E) && !cooldown && selection.CompareTag("NumberBlock"))
             {
                 var input = selection.GetComponent<NumberInputTrigger>();
                 input.TriggerInput();
+
+                Invoke("ResetCooldown", 1f);
+                cooldown = true;
+            }
+            if(Input.GetKey(KeyCode.E) && !cooldown && selection.CompareTag("Door"))
+            {
+                var doorTrigger = selection.GetComponent<TriggerDoor>();
+                if (!doorTrigger.GetDoorState())
+                {
+                    doorTrigger.OpenDoor();
+                }
+                else
+                {
+                    doorTrigger.CloseDoor();
+                }
 
                 Invoke("ResetCooldown", 1f);
                 cooldown = true;

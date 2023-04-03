@@ -9,6 +9,7 @@ TagManager:
   - Selectable
   - PickUpable
   - PlaceObject
+  - Door
   layers:
   - Default
   - TransparentFX

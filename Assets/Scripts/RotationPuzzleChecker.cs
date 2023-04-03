@@ -23,9 +23,9 @@ public class RotationPuzzleChecker : MonoBehaviour
         check3 = Mathf.FloorToInt(RotatingObject3.transform.rotation.eulerAngles.y);
         check4 = Mathf.FloorToInt(RotatingObject4.transform.rotation.eulerAngles.y);
 
-        if (check1 == 157 && check2 == 22 && check3 == 247 && check4 == 112)
+        if (check1 == 247 && check2 == 112 && check3 == 337 && check4 == 202)
         {
-            Door.Play("EgyptDoorOpen");
+            Door.Play("EgyptDoorOpen2");
         }
     }
     

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NumberInputTrigger : MonoBehaviour
@@ -22,8 +23,9 @@ public class NumberInputTrigger : MonoBehaviour
     {
         if (!ifChecked)
         {
-            transform.position += new Vector3(-0.2f, 0, 0 * Time.deltaTime * 0.2f);
+            transform.position += new Vector3(0, 0, -0.2f);
             ifChecked = true;
+            Debug.Log("Yes");
         }
     }
 

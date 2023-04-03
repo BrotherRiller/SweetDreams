@@ -40,8 +40,25 @@ public class TriggerDoor : MonoBehaviour
         }
     }
 
+    public void OpenDoor()
+    {
+        myDoor.Play(doorOpen, 0, 0.0f);
+        openTrigger = true;
+    }
+
+    public void CloseDoor()
+    {
+        myDoor.Play(doorClose, 0, 0.0f);
+        openTrigger = false;
+    }
+
     void ResetCooldown()
     {
         cooldown = false;
+    }
+
+    public bool GetDoorState()
+    {
+        return openTrigger;
     }
 }

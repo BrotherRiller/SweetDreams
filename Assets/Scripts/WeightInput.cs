@@ -21,7 +21,7 @@ public class WeightInput : MonoBehaviour
 
         if (check1 == 0 && check2 == 60 && check3 == 120)
         {
-            Door.Play("EgyptDoorOpen");
+            Debug.Log("Geschafft");
         }
     }
 }

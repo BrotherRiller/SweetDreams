@@ -35,7 +35,7 @@ public class NumberGuesser : MonoBehaviour
 
         if(answer1 && answer2 && answer3)
         {
-            Debug.Log("Geschafft");
+            door.Play("EgyptDoorOpen1");
         }
     }
 }
